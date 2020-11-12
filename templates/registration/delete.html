@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+<form role="form" method="post">
+  {% csrf_token %}
+  <p>{{ user.email }}</p>
+  <p>本当にこのアカウントを削除してもよろしいですか？</p>
+  <input type="submit" value="削除する" class="btn border-danger">
+  <a href="javascript:void(0);" onclick="window.history.back();" class="btn border-primary">キャンセル</a>
+</form>
+</form>
+{% endblock %}

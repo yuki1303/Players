@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+    <form method="post">
+        {% csrf_token %}
+        <p>{{ post.message }}</p>
+        <p>この投稿を本当に削除しますか？</p>
+        <input type="submit" value="削除する" class="btn border-danger">
+        <a href="javascript:void(0);" onclick="window.history.back();" class="btn border-primary">キャンセル</a>
+      </form>
+    </form>
+
+{% endblock %}

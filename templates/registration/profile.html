@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block contents %}
+<div class="row text-center">
+  <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+    <div class="card card-signin my-5">
+      <div class="card-body">
+        <h5 class="card-title text-center">プロフィール</h5>
+
+    <table class="table borderless">
+        <tbody>
+        <tr>
+            <th scope="row">会員ID</th>
+            <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+            <th scope="row">名</th>
+            <td>{{ user.first_name }}</td>
+        </tr>
+        <tr>
+            <th scope="row">姓</th>
+            <td>{{ user.last_name }}</td>
+        </tr>
+        <tr>
+            <th scope="row">年齢</th>
+            <td>{{ user.age }}</td>
+        </tr>
+        <tr>
+            <th scope="row">経験年数</th>
+            <td>{{ user.experiense }}</td>
+        </tr>
+        <tr>
+            <th scope="row">居住地</th>
+            <td>{{ user.location }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="{% url 'accounts:user_update' user.pk %}" class="btn border-success">編集</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

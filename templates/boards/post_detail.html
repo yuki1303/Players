@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+<div class="card mb-3">
+  <div class="card-header">
+    {{ post.user.location }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ post.user.last_name }}</h5>
+    <p class="card-text">{{ post.message }}</p>
+    <ul>
+      <li>年齢：{{ post.user.age }}</li>
+      <li>経験年数：{{ post.user.experiense }}</li>
+    </ul>
+  </div>
+</div>
+
+
+<p><a href="{% url 'boards:comment' post.pk %}" class="btn border-success">コメントする</a></p>
+
+<h3 class="pt-5 mb-3">コメント一覧</h3>
+
+<table class="table table-hover">
+  <tbody>
+    {% for comment in post.comment_set.all %}
+    <tr>
+      <td>{{ comment.name }}</td>
+      <td>{{ comment.text }}</td>
+      {% if request.user.id == comment.user.id %}
+      <td><a href="{% url 'boards:comment_delete' comment.pk %}" class="btn border-danger">削除</a></td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+
+{% endblock %}

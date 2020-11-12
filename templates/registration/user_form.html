@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load bootstrap4 %}
+
+{% block contents %}
+
+<div class="row text-center">
+  <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+    <div class="card card-signin my-5">
+      <div class="card-body">
+        <h5 class="card-title text-center">プロフィール</h5>
+
+<form action="" method="POST">
+    {{ form.non_field_errors }}
+    <table class="table">
+        <tbody>
+            {% for field in form %}
+                <tr>
+                    <th><label for="{{ field.id_for_label }}">{{ field.label }}</label></th>
+                    <td>{{ field }} {{ field.errors }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% csrf_token %}
+    <button type="submit" class="btn border-primary" >編集完了</button>
+</form>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
