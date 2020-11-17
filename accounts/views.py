@@ -29,7 +29,7 @@ class ProfileView(LoginRequiredMixin, generic.View):
     def get(self, *args, **kwargs):
         return render(self.request,'registration/profile.html')
 
-class UserUpdate(OnlyYouMixin, generic.UpdateView):
+class UserUpdateView(OnlyYouMixin, generic.UpdateView):
     model = User
     form_class = UserUpdateForm
     template_name = 'registration/user_form.html'

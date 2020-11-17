@@ -25,11 +25,11 @@ class CreatePostsView(LoginRequiredMixin, CreateView):
 class PostsDetailView(DetailView):
     model = Post
 
-class PostsDelete(DeleteView):
+class PostsDeleteView(DeleteView):
     model = Post
     success_url = reverse_lazy('boards:post')
 
-class CommentCreate(CreateView):
+class CommentCreateView(CreateView):
     model = Comment
     fields = ['text',]
 
@@ -46,6 +46,6 @@ class CommentCreate(CreateView):
         comment.save()
         return super(CommentCreate, self).form_valid(form)
 
-class CommentDelete(DeleteView):
+class CommentDeleteView(DeleteView):
     model = Comment
     success_url = reverse_lazy('boards:post')
